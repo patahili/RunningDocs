@@ -33,6 +33,7 @@ Referenced in:
 - [2023-06 CoreOS E+P AI Long and Mid-Term Plan](https://microsoft.sharepoint.com/teams/coreos/_layouts/15/Doc.aspx?sourcedoc=%7B5CCE20A4-B7B7-4CF3-864D-2D28A97C1BAF%7D&file=2023-06%20CoreOS%20E%2BP%20AI%20Long%20and%20Mid-Term%20Plan.docx&action=default&mobileredirect=true&DefaultItemOpen=1&EntityRepresentationId=71db36de-37a6-4773-8462-e0a18c644a8e)
 - [2024-10-02 NPU EP Requirements v1.11.1, Intel](https://microsoft.sharepoint.com/teams/WSSITeam/Shared%20Documents/WSSI%20PM%20Team/Windows%20AI/Specs/NPU%20EP%20Requirements%20Document/NPU%20EP%20Requirements%20Versions/2024-10-02-NPU-EP-Requirements-v1.11.1/2024-10-02%20NPU%20EP%20Requirements%20v1.11.1,%20Intel.pdf?web=1&EntityRepresentationId=0ebae372-09b3-43e8-b4b3-5c592454b0d1)
 
+
 ---
 
 ### Execution Provider (EP) Strategy

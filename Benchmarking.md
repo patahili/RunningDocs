@@ -1,6 +1,19 @@
 # Windows AI Benchmarking Strategy White Paper
 
-## 1. Market Analysis
+| Section | Purpose | Key Questions to Answer |
+|---------|---------|------------------------|
+| 1. Executive Summary | Set the vision and strategic intent | What is the strategic opportunity for Windows AI benchmarking?<br/>Why now? |
+| 2. Strategic Context | Define goals, customer needs, and competitive landscape | What do customers care about?<br/>What are competitors doing?<br/>What's our unique angle? |
+| 3. Customer & Market Analysis | Segment users and identify pain points | Who are our key audiences?<br/>What are their challenges with Windows AI? |
+| 4. Benchmarking Strategy | Map tools, metrics, and gaps | Which benchmarks matter?<br/>What do they measure?<br/>Where are the gaps? |
+| 5. Strategic Framing (4Cs) | Build narrative pillars: Clarity, Credibility, Confidence, Inspiration | How do we build trust, drive adoption, and inspire innovation? |
+| 6. Runtime Positioning | Clarify WinML and ecosystem value | Why WinML?<br/>How does it compare to alternatives?<br/>What's the developer story? |
+| 7. Tactical Roadmap | Define milestones, phases, and execution plan | What will we do in the next 12 months?<br/>What are the key deliverables? |
+| 8. Leadership Messaging | Align with executive priorities and storytelling | How do we communicate this strategy internally and externally? |
+| 9. Risks & Dependencies | Identify blockers and mitigation plans | What could go wrong?<br/>What do we need to watch out for? |
+| 10. Data & Feedback Loop | Plan for telemetry, customer input, and iteration | How will we measure success and improve over time? |
+
+## 1. Strategic Context
 
 ### 1.1 Customer Landscape
 
@@ -150,5 +163,47 @@ Windows AI must win developer trust by:
 - **Aligning internal efforts** (WinML, DirectML, ORT) under a unified developer experience
 
 Benchmarks are not just performance metrics—they are **trust signals**. They help developers choose Windows confidently, knowing their models will run well, consistently, and with minimal effort.
+
+### 1.3 Competitive Challenges against Apple
+
+#### Competitor Comparison: Apple M4 vs Snapdragon X Elite (Windows AI Stack)
+
+| Category | Apple M4 | Snapdragon X Elite (Cadmus) | Notes |
+|---------|----------|------------------------------|-------|
+| **NPU TOPS (Theoretical)** | 38 TOPS | 45 TOPS | Qualcomm leads on paper |
+| **Geekbench AI 1.4 (Quantized)** | 51,775 | 37,149 (≈72%) | Apple leads in real-world NPU inference |
+| **Geekbench AI 1.4 (Half Precision)** | 45,452 | ~32,000 | Internal data shows Cadmus trailing Apple |
+| **Procyon AI CV Score** | 2,166 | 1,847 (≈85%) | Apple leads in image-based inference |
+| **MLPerf Client** | No published score | In progress | Qualcomm working to remove DSP queuing overheads to reach parity |
+| **Efficiency vs TOPS** | High (Core ML stack) | Lower (driver/toolchain gaps) | Apple's stack delivers better throughput per TOPS |
+| **Stack Maturity** | Core ML + Neural Engine | WinML + Olive + ORT | Apple's stack is more integrated and optimized |
+
+#### Implications for Windows Benchmark Strategy
+
+| Apple Advantage | Windows Response |
+|------------------|------------------|
+| High NPU TOPS (38) | Highlight 45 TOPS in Copilot+ PCs |
+| Geekbench AI dominance | Improve WinML path and score parity |
+| Efficiency > raw TOPS | Focus on real-world throughput and latency |
+| Core ML stack maturity | Invest in WinML + Olive stack integration |
+
+### 1.4 Problem Context
+
+The problem to solve isn't just "beating Apple in Geekbench AI." That's necessary but not sufficient.
+
+**Apple's delight:** seamless integration → devs/consumers trust it'll just work.
+
+**Microsoft's opportunity:**
+
+Show that Windows AI works across the fragmented ecosystem (multiple IHVs, runtimes).
+
+Do this by partnering with standard benchmarks:
+- **Geekbench AI** for parity
+- **Procyon** for real-world proof  
+- **MLPerf** for enterprise credibility
+
+Push the narrative beyond TOPS → portability, predictability, efficiency, and scenario realism.
+
+**Benchmarks = bridge from fragmentation → clarity.**
 
 ---
