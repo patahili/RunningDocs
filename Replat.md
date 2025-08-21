@@ -38,6 +38,21 @@ This architectural evolution enables consuming applications to operate without e
 
 ---
 
+### **Disabling CPU Execution: Transitioning from Dual Builds to Runtime Control**
+
+As part of the AI Fabric and WinML replat effort, the team is shifting away from the legacy dual-build strategy for disabling CPU execution. Historically, CPU code paths were stripped at build time using flags like `enable CPU`, resulting in separate builds that either included or excluded CPU execution support. While effective, this approach introduced complexity and rigidity into the build pipeline.
+
+The proposed change embraces a more flexible and maintainable model by enforcing CPU execution restrictions at runtime. This involves:
+
+- **Runtime Configuration**: CPU EP access is now governed by session-level flags and policy settings, rather than build-time exclusions. This allows for dynamic control over which execution providers are enabled.
+- **Production Safeguards**: In production, only the EP matching the device's package (e.g., NPU) is included. CPU EPs are excluded from these packages, preventing fallback scenarios. AI Fabric will implement additional hardening to ensure only the intended EP is active.
+- **Session Protections**: Developers can disable fallback explicitly using session options like `disable_cpu_fallback`, which is supported by providers such as OpenVINO. AMD EPs do not support fallback, while Vitis allows limited fallback for specific operators but includes configuration to restrict this behavior.
+- **Testing Flexibility**: The relaxed restrictions enable easier CI and local testing using CPU, without compromising production integrity. This is especially useful for development workflows and regression testing.
+
+This shift reflects a broader effort to streamline deployment, reduce build complexity, and support dynamic configuration across heterogeneous hardware environments. It also aligns with the team's goal of minimizing platform-specific code and standardizing EP packaging and registration via MSIX and NuGet.
+
+---
+
 ## Expected Customer UX
 
 

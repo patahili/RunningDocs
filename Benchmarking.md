@@ -1,19 +1,18 @@
 # Windows AI Benchmarking Strategy White Paper
 
-| Section | Purpose | Key Questions to Answer |
-|---------|---------|------------------------|
-| 1. Executive Summary | Set the vision and strategic intent | What is the strategic opportunity for Windows AI benchmarking?<br/>Why now? |
-| 2. Strategic Context | Define goals, customer needs, and competitive landscape | What do customers care about?<br/>What are competitors doing?<br/>What's our unique angle? |
-| 3. Customer & Market Analysis | Segment users and identify pain points | Who are our key audiences?<br/>What are their challenges with Windows AI? |
-| 4. Benchmarking Strategy | Map tools, metrics, and gaps | Which benchmarks matter?<br/>What do they measure?<br/>Where are the gaps? |
-| 5. Strategic Framing (4Cs) | Build narrative pillars: Clarity, Credibility, Confidence, Inspiration | How do we build trust, drive adoption, and inspire innovation? |
-| 6. Runtime Positioning | Clarify WinML and ecosystem value | Why WinML?<br/>How does it compare to alternatives?<br/>What's the developer story? |
-| 7. Tactical Roadmap | Define milestones, phases, and execution plan | What will we do in the next 12 months?<br/>What are the key deliverables? |
-| 8. Leadership Messaging | Align with executive priorities and storytelling | How do we communicate this strategy internally and externally? |
-| 9. Risks & Dependencies | Identify blockers and mitigation plans | What could go wrong?<br/>What do we need to watch out for? |
-| 10. Data & Feedback Loop | Plan for telemetry, customer input, and iteration | How will we measure success and improve over time? |
+## Table of Contents
 
-## 1. Strategic Context
+| Section | Purpose |
+|---------|---------|
+| 1. Strategic Context & Market Analysis | Define platform goals, developer needs, competitive landscape, and public sentiment |
+| 2. WinML Goals & Runtime Strategy | Clarify WinML's role, unify runtimes, and reduce developer friction |
+| 3. Silicon Roadmap & Hardware Strategy | Position GPUs, NPUs, and new SoCs in the benchmarking and developer experience narrative |
+| 4. Benchmarking Landscape & Rationale | Explain why benchmarking matters, what benchmarks exist, and how they shape perception and adoption |
+| 5. Strategic Framing (4Cs) | Build narrative pillars: Clarity, Credibility, Confidence, Inspiration |
+| 6. Tactical Roadmap | Define milestones, phases, and execution plan for the next 12 months |
+| 7. Making It Happen | Leadership messaging, risks, dependencies, and feedback loop to drive adoption and iteration |
+
+## 1. Strategic Context & Market Analysis
 
 ### 1.1 Customer Landscape
 
@@ -164,9 +163,24 @@ Windows AI must win developer trust by:
 
 Benchmarks are not just performance metrics—they are **trust signals**. They help developers choose Windows confidently, knowing their models will run well, consistently, and with minimal effort.
 
-### 1.3 Competitive Challenges against Apple
+### 1.3 What Developers Are Looking for
 
-#### Competitor Comparison: Apple M4 vs Snapdragon X Elite (Windows AI Stack)
+#### 1.3.1 AI Developer Needs, Gaps & Opportunities (from Public Sentiment)
+
+| **Focus Area**         | **What Developers Want**                                                                 | **Observed Gaps or Opportunities** |
+|------------------------|-------------------------------------------------------------------------------------------|------------------------------------|
+| **Ease of Development** | Fast setup, stable environments, minimal friction; Mac praised for "just works" experience | Windows setup can be more complex; opportunity to simplify onboarding and unify runtimes |
+| **Performance**         | Efficient inference and fast training; Apple wins on efficiency, Windows on raw power     | Opportunity to showcase Windows performance across diverse workloads and hardware tiers |
+| **Tooling & Ecosystem** | Rich IDEs, framework support, and cross-platform tools; VS Code is universally loved       | Opportunity to highlight Windows-native tools (WinML, ONNX, ML.NET) and improve discoverability |
+| **Hardware Integration**| Tight hardware-software synergy; Apple's unified memory and NPU praised                   | Opportunity to position Copilot+ PCs and Windows NPUs as competitive and scalable |
+
+##### Strategic Insight
+
+> Public developer sentiment reveals that AI developers prioritize **ease of development**, **performance**, **tooling**, and **hardware integration** when choosing a platform. Apple has gained mindshare by delivering a seamless, efficient experience with tight hardware-software coupling, while Windows is recognized for its flexibility, raw power, and enterprise-grade tooling. The opportunity for Windows AI lies in reducing setup friction, showcasing performance across diverse workloads, and elevating the visibility of its developer ecosystem. Benchmarking should be framed not just as a scorecard, but as a tool to validate and communicate these strengths in ways that resonate with developers building real-world AI applications.
+
+#### 1.3.2 Apple vs Microsoft: Current Competitive Situation
+
+##### Competitor Comparison: Apple M4 vs Snapdragon X Elite (Windows AI Stack)
 
 | Category | Apple M4 | Snapdragon X Elite (Cadmus) | Notes |
 |---------|----------|------------------------------|-------|
@@ -178,7 +192,7 @@ Benchmarks are not just performance metrics—they are **trust signals**. They h
 | **Efficiency vs TOPS** | High (Core ML stack) | Lower (driver/toolchain gaps) | Apple's stack delivers better throughput per TOPS |
 | **Stack Maturity** | Core ML + Neural Engine | WinML + Olive + ORT | Apple's stack is more integrated and optimized |
 
-#### Implications for Windows Benchmark Strategy
+##### Implications for Windows Benchmark Strategy
 
 | Apple Advantage | Windows Response |
 |------------------|------------------|
