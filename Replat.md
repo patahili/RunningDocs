@@ -60,11 +60,50 @@ This shift reflects a broader effort to streamline deployment, reduce build comp
 
 ## Validation
 
-### CI Gates
+### EP Ingestion and Gating
 
-### RI Gates
+#### Situation
 
-### AppCompat
+EP ingestion currently follows two distinct paths. IHVs build EPs, run certification, and submit results to Microsoft. ASG runs validation via PSAPI ingestion, and if tests pass, EPs are ingested. WinPD then runs a 'mini cert' to trust but verify before final ingestion.
+
+With replat, this gets streamlined. IHVs build and certify, submit to Microsoft, WinPD runs mini cert, and if it passes, EP gets ingested directly.
+
+Tim emphasized that WinPD should not be a bottleneck for customer models. Instead, clients like ASG and XBOX should build their own test suites and models. These get onboarded into Microsoft's automation harness - we provide infrastructure and devices, clients provide test plans and models.
+
+The risk is clear: without a solid CP+ model egression test plan and defined roles & responsibilities, replat should not proceed. ASG may delay citing lack of time to build test harnesses. Jerry owns cert1p validation and is building an OSS version of the automation system.
+
+#### Proposal
+
+Microsoft provides certification tools and validation infrastructure. Clients provide test playlists, plans, and models. Everyone plugs into the automation harness.
+
+![EP Validation Process](SupportingFiles/Replat_EP_Validation.png)
+
+Key components:
+
+1. **Shared Infrastructure:** WSSI IDC manages a shared lab/device pool across WSSI, WinPD, and ASG. They're best positioned given existing capabilities like WE2. This avoids duplication and ensures consistency.
+
+2. **Client Integration:** Each client builds their own test suites and models, then integrates with Microsoft's automation harness. If client tests fail, EP ingestion is blocked automatically.
+
+3. **Streamlined Process:** One lab, consistent processes, with Jerry's OSS automation system evaluated for broader use.
+
+#### Next Steps
+
+Lock the validation and replat plan by end of September. October is the RI milestone - by 10/7, we need a working plan in place.
+
+Testing strategy:
+- ASG performs accuracy and latency tests using ORT perf test
+- App Compat conducts basic and feature-level testing  
+- RI gates for AI Fabric with replat enabled by end of month
+
+Collaboration between STCA and WSSI IDC is essential to automate 'trust but verify' processes. The validation strategy must be part of replat, not separate.
+
+### App Compat
+
+App Compat testing ensures existing Windows applications continue working with replat while enabling new dynamic EP capabilities. This covers both basic functionality and feature-level testing across different hardware configurations.
+
+The framework validates that existing WinML apps work unchanged, Windows App SDK integration functions correctly through Microsoft Store delivery, and hardware detection with EP provisioning works across diverse device types.
+
+Testing includes regression validation, fallback scenario verification, and edge case handling to ensure reliable performance across all deployment scenarios.
 
 
 ---

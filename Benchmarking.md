@@ -59,15 +59,16 @@
 
 | Criteria | **0** | **1** | **2** | **3** |
 |----------|-------|-------|-------|-------|
-| **Benchmark Visibility / Influence** <br/> *How much benchmark results for this segment shape press, analysts, or customer perception* | No visibility | Rarely referenced | Sometimes referenced in niche press or partner marketing | Frequently cited in reviews/press (Geekbench AI, Procyon, MLPerf) |
-| **Attractiveness to Customers** <br/> *Degree to which benchmark results will pull new developers/ISVs/partners into building on Windows* | No influence | Weak signal | Moderate signal, one of several decision factors | Strong signal, directly influences platform choice |
-| **Market Opportunity** <br/> *Size and growth potential of this segment for Windows AI adoption* | Minimal opportunity | Small TAM, niche | Medium TAM or growth | Large TAM + high growth (ISVs, OEMs) |
-| **Advocacy Potential** <br/> *Likelihood this segment will amplify benchmarks publicly (blogs, case studies, events)* | No advocacy | Low | Medium; sometimes advocates | Very high; often publishes and promotes |
-| **Technical Benchmark Fit** <br/> *How well existing standard benchmarks (Geekbench AI, Procyon, MLPerf) represent this segment's workloads* | No alignment | Weak fit | Partial fit | Strong fit — benchmarks map directly to use cases |
+| **Benchmark Visibility / Influence**<br/>*How much benchmark results for this segment shape press, analysts, or customer perception* | No visibility | Rarely referenced | Sometimes referenced in niche press or partner marketing | Frequently cited in reviews/press (Geekbench AI, Procyon, MLPerf) |
+| **Attractiveness to Customers**<br/>*Degree to which benchmark results will pull new developers/ISVs/partners into building on Windows* | No influence | Weak signal | Moderate signal, one of several decision factors | Strong signal, directly influences platform choice |
+| **Market Opportunity**<br/>*Size and growth potential of this segment for Windows AI adoption* | Minimal opportunity | Small TAM, niche | Medium TAM or growth | Large TAM + high growth (ISVs, OEMs) |
+| **Advocacy Potential**<br/>*Likelihood this segment will amplify benchmarks publicly (blogs, case studies, events)* | No advocacy | Low | Medium; sometimes advocates | Very high; often publishes and promotes |
+| **Technical Benchmark Fit**<br/>*How well existing standard benchmarks (Geekbench AI, Procyon, MLPerf) represent this segment's workloads* | No alignment | Weak fit | Partial fit | Strong fit — benchmarks map directly to use cases |
 
 #### 1.1.3 Customer Segment Scoring and Prioritization
 
 ##### Customer Segment Scorecard
+
 *Objective: Show rigor and transparency in evaluation.*
 
 | Segment | Benchmark Visibility | Attractiveness to Customers | Market Opportunity | Advocacy Potential | Technical Fit | **Total** |
@@ -79,9 +80,10 @@
 | **Academic / Research** | 1 | 1 | 2 | 1 | 2 | **7** |
 | **MacOS / iOS Devs** | 3 | 2 | 2 | 2 | 2 | **11** |
 
-*(Scoring: 0–3 per factor, max 15)*
+**Scoring: 0–3 per factor, max 15**
 
 ##### Spotlight – Top 3 Priority Segments
+
 *Objective: Focus the conversation on where benchmark partnerships matter most.*
 
 | Priority Segment | Total Score | Strategic Value |
@@ -99,15 +101,18 @@ Developers building AI on Windows face several key challenges that benchmarking 
 **Pain Point:** Developers and reviewers often perceive Apple Silicon and Linux-first stacks as faster and more efficient than Windows.
 
 **Internal Evidence:**
+
 - [Photoshop on Windows (Cadmus) started ~30% behind Apple M2 but reached parity in Feb 2025](https://microsoft.sharepoint.com/:p:/t/WSSITeam/EVfgOPTYTMxNsKRirvJ4zygBNAo_IAYvPqRzb2oHA8JvvQ?e=EpWlwi)
 - WiSiProgramUpdate_080125 (no direct link found)
 - [Windows Studio Overview & OEM Extensibility for Cameras](https://microsoft.sharepoint.com/:p:/r/teams/osg_core_sigma/scon/_layouts/15/Doc.aspx?sourcedoc=%7BD81EDE46-3075-45FE-9FD8-ECBA3348F0CC%7D&file=Whitepaper%20-%20Windows%20Studio%20Overview%20%26%20OEM%20Extensibility%20for%20Cameras.docx&action=default&mobileredirect=true)
 
 **External Evidence:**
+
 - [Microsoft Copilot+ PC announcement](https://blogs.microsoft.com/blog/2024/05/20/introducing-copilot-pcs/)
 - [Tom's Guide testing methodology](https://www.tomsguide.com/how-we-test)
 
 **Benchmark Role:**
+
 - Publish apples-to-apples cross-platform results using Geekbench AI and Procyon AI scenario suites (CV, Image Gen, Text Gen)
 
 #### 1.2.2 Fragmented Runtime / Engine Choices
@@ -115,16 +120,19 @@ Developers building AI on Windows face several key challenges that benchmarking 
 **Pain Point:** Developers face confusion over which runtime to use—WinML, DirectML, ONNX Runtime, etc.—and how they map to hardware.
 
 **Internal Evidence:**
+
 - [AI Platform Spec](https://microsoft.sharepoint.com/:w:/r/teams/DCP_Arcata/_layouts/15/doc2.aspx?sourcedoc=%7B6B929989-9947-4647-9CCD-586ADF3C0E83%7D&file=AI%20Platform%20Spec.docx&action=default&mobileredirect=true)
 - [AI Compatibility Strategy and Plan](https://microsoft.sharepoint.com/:w:/r/teams/WIPRO/_layouts/15/Doc.aspx?sourcedoc=%7B6B929989-9947-4647-9CCD-586ADF3C0E83%7D&file=AI%20Compatibility%20Strategy%20and%20Plan.docx&action=default&mobileredirect=true)
 - QC and Windows ML Workstream Tracker (no direct link found)
 
 **External Evidence:**
+
 - [ONNX Runtime Execution Providers](https://onnxruntime.ai/docs/execution-providers/)
 - [UL Procyon AI Computer Vision benchmark](https://benchmarks.ul.com/pc-procyon/ai-inference)
 - [Windows ML Preview (May 2025)](https://blogs.windows.com/windowsdeveloper/2025/05/19/introducing-windows-ml-the-future-of-machine-learning-development-on-windows/)
 
 **Benchmark Role:**
+
 - Use Procyon CV suite to show DirectML + ORT provide broad coverage and consistent performance across IHVs
 
 #### 1.2.3 Model Portability / Compatibility Friction
@@ -132,17 +140,20 @@ Developers building AI on Windows face several key challenges that benchmarking 
 **Pain Point:** ONNX is intended to "just work," but developers report friction due to operator coverage gaps and performance mismatches across hardware.
 
 **Internal Evidence:**
+
 - [ONNX Team Presentation](https://microsoft.sharepoint.com/:p:/r/sites/ONNXTeam/_layouts/15/Doc.aspx?sourcedoc=%7B6B929989-9947-4647-9CCD-586ADF3C0E83%7D&file=ONNX.pptx&action=default&mobileredirect=true)
 - [Windows ML onsite with Intel (June 2025)](https://microsoft.sharepoint.com/:p:/r/teams/WSSITeam/_layouts/15/Doc.aspx?sourcedoc=%7B6B929989-9947-4647-9CCD-586ADF3C0E83%7D&file=2025-06-25%20-%20Windows%20ML%20onsite%20with%20Intel.pptx&action=default&mobileredirect=true)
 - [AMD Sharepoint: Model conversion tooling and EP certification](https://microsoft.sharepoint.com/:p:/t/MSFT_AMD_Share/EVfgOPTYTMxNsKRirvJ4zygBNAo_IAYvPqRzb2oHA8JvvQ?e=EpWlwi)
 
 **External Evidence:**
+
 - [ONNX Operator Coverage](https://onnx.ai/onnx/intro/operators.html)
 - [AMD Ryzen AI Software Overview](https://ryzenai.docs.amd.com/en/latest/)
 - [Qualcomm AI Engine Direct SDK](https://developer.qualcomm.com/software/qualcomm-ai-engine-direct-sdk)
 - [Windows ML Partner Quotes](https://blogs.windows.com/windowsdeveloper/2025/05/19/introducing-windows-ml-the-future-of-machine-learning-development-on-windows/)
 
 **Benchmark Role:**
+
 - Define a "Portability Score" → % of reference ONNX models that run unchanged across IHVs on Windows
 
 #### 1.2.4 Benchmark Strategy Mapping
@@ -152,16 +163,6 @@ Developers building AI on Windows face several key challenges that benchmarking 
 | **Perception gap** | Geekbench AI + Procyon cross-OS results | tokens/s, images/s, p95 latency, accuracy |
 | **Runtime choice** | Procyon engine comparisons | DirectML vs TensorRT vs OpenVINO vs QNN perf variance |
 | **Portability** | "Windows Portability Score" | % ONNX models run unchanged across IHVs |
-
-#### 1.2.5 Strategic Framing
-
-Windows AI must win developer trust by:
-- **Delivering consistent performance** across IHVs and form factors
-- **Reducing friction** in model deployment and runtime selection
-- **Publishing transparent benchmarks** that validate platform competitiveness
-- **Aligning internal efforts** (WinML, DirectML, ORT) under a unified developer experience
-
-Benchmarks are not just performance metrics—they are **trust signals**. They help developers choose Windows confidently, knowing their models will run well, consistently, and with minimal effort.
 
 ### 1.3 What Developers Are Looking for
 
@@ -173,10 +174,6 @@ Benchmarks are not just performance metrics—they are **trust signals**. They h
 | **Performance**         | Efficient inference and fast training; Apple wins on efficiency, Windows on raw power     | Opportunity to showcase Windows performance across diverse workloads and hardware tiers |
 | **Tooling & Ecosystem** | Rich IDEs, framework support, and cross-platform tools; VS Code is universally loved       | Opportunity to highlight Windows-native tools (WinML, ONNX, ML.NET) and improve discoverability |
 | **Hardware Integration**| Tight hardware-software synergy; Apple's unified memory and NPU praised                   | Opportunity to position Copilot+ PCs and Windows NPUs as competitive and scalable |
-
-##### Strategic Insight
-
-> Public developer sentiment reveals that AI developers prioritize **ease of development**, **performance**, **tooling**, and **hardware integration** when choosing a platform. Apple has gained mindshare by delivering a seamless, efficient experience with tight hardware-software coupling, while Windows is recognized for its flexibility, raw power, and enterprise-grade tooling. The opportunity for Windows AI lies in reducing setup friction, showcasing performance across diverse workloads, and elevating the visibility of its developer ecosystem. Benchmarking should be framed not just as a scorecard, but as a tool to validate and communicate these strengths in ways that resonate with developers building real-world AI applications.
 
 #### 1.3.2 Apple vs Microsoft: Current Competitive Situation
 
@@ -201,23 +198,64 @@ Benchmarks are not just performance metrics—they are **trust signals**. They h
 | Efficiency > raw TOPS | Focus on real-world throughput and latency |
 | Core ML stack maturity | Invest in WinML + Olive stack integration |
 
-### 1.4 Problem Context
+### 1.4 Strategic Inferences
 
-The problem to solve isn't just "beating Apple in Geekbench AI." That's necessary but not sufficient.
+Windows AI is at a pivotal moment. Developers are increasingly choosing platforms based on **ease of development**, **performance**, **tooling**, and **hardware integration** — not just raw specs. Apple has gained mindshare by delivering a seamless, efficient experience with tight hardware-software coupling. Meanwhile, Windows is recognized for its flexibility, power, and enterprise-grade tooling — but faces perception gaps and fragmentation challenges.
 
-**Apple's delight:** seamless integration → devs/consumers trust it'll just work.
+To win developer trust and drive adoption, Windows AI must:
 
-**Microsoft's opportunity:**
+- **Deliver consistent performance** across IHVs and form factors
+- **Reduce friction** in model deployment and runtime selection
+- **Publish transparent benchmarks** that validate platform competitiveness
+- **Align internal efforts** (WinML, DirectML, ONNX Runtime) under a unified developer experience
 
-Show that Windows AI works across the fragmented ecosystem (multiple IHVs, runtimes).
+These insights reveal that benchmarking is not just a technical exercise — it's a strategic lever. Benchmarks are **trust signals**. They help developers choose Windows confidently, knowing their models will run well, consistently, and with minimal effort. The opportunity lies in using benchmarking to showcase Windows strengths, close perception gaps, and inspire developers to build the next generation of AI experiences on Windows.
 
-Do this by partnering with standard benchmarks:
-- **Geekbench AI** for parity
-- **Procyon** for real-world proof  
-- **MLPerf** for enterprise credibility
+## 2. WinML Goals & Runtime Strategy
 
-Push the narrative beyond TOPS → portability, predictability, efficiency, and scenario realism.
+*Clarify WinML's role, unify runtimes, and reduce developer friction*
 
-**Benchmarks = bridge from fragmentation → clarity.**
+[Content to be developed]
 
----
+## 3. Silicon Roadmap & Hardware Strategy
+
+*Position GPUs, NPUs, and new SoCs in the benchmarking and developer experience narrative*
+
+[Content to be developed]
+
+## 4. Benchmarking Landscape & Rationale
+
+*Explain why benchmarking matters, what benchmarks exist, and how they shape perception and adoption*
+
+### 🔍 Problem Context
+
+The challenge for Windows AI isn't simply to outperform Apple in synthetic benchmarks like Geekbench AI — that's necessary, but not sufficient. Apple's strength lies in its seamless integration, which builds developer and consumer trust that "it just works." In contrast, Windows operates across a fragmented ecosystem of IHVs, runtimes, and hardware configurations — making consistency and clarity harder to achieve.
+
+To address this, benchmarking must serve as a strategic bridge — not just a scorecard. It should:
+
+- **Demonstrate parity and leadership** through trusted, cross-platform benchmarks like Geekbench AI
+- **Validate real-world performance** using scenario-based suites like UL Procyon
+- **Establish enterprise credibility** via MLPerf and other industry-standard benchmarks
+- **Shift the narrative** from raw TOPS to portability, predictability, efficiency, and scenario realism
+
+Benchmarks, when used strategically, become clarity tools — helping developers navigate complexity and confidently choose Windows as their AI development platform.
+
+[Additional content to be developed]
+
+## 5. Strategic Framing (4Cs)
+
+*Build narrative pillars: Clarity, Credibility, Confidence, Inspiration*
+
+[Content to be developed]
+
+## 6. Tactical Roadmap
+
+*Define milestones, phases, and execution plan for the next 12 months*
+
+[Content to be developed]
+
+## 7. Making It Happen
+
+*Leadership messaging, risks, dependencies, and feedback loop to drive adoption and iteration*
+
+[Content to be developed]
