@@ -1,0 +1,36 @@
+EP_Ingestion_Before: {
+  IHV: "IHV Builds EP"
+  Cert: "IHV Runs Cert"
+  Submit: "IHV Submits EP + Cert Results to MS"
+  ASG_Val: "ASG Runs Validation (PSAPI)"
+  ASG_Ingest: "EP Ingested by ASG"
+  EP_Reject: "Reject EP"
+  WinPD_MiniCert: "WinPD Runs Mini Cert"
+  WinPD_Ingest: "EP Ingested by WinPD"
+
+  IHV -> Cert
+  Cert -> Submit
+  Submit -> ASG_Val
+  ASG_Val -> ASG_Ingest: "If ASG Tests Pass"
+  ASG_Val -> EP_Reject: "If ASG Tests Fail"
+  Submit -> WinPD_MiniCert
+  WinPD_MiniCert -> WinPD_Ingest: "If Mini Cert Passes"
+  WinPD_MiniCert -> EP_Reject: "If Mini Cert Fails"
+}
+
+EP_Ingestion_After: {
+  IHV: "IHV Builds EP"
+  Cert: "IHV Runs Cert"
+  Submit: "IHV Submits EP + Cert Results to MS"
+  Unified_CertHarness: "<SOMEONE> Runs Cert Harness"
+  Unified_Ingest: "EP Ingested by WinPD"
+  Unified_Reject: "Reject EP (Cert Harness Failed)"
+  WinML_Customer: "WinML Customer Builds Test Collaterals (Models + Test Playlist + Gates)"
+
+  IHV -> Cert
+  Cert -> Submit
+  Submit -> Unified_CertHarness
+  Unified_CertHarness -> Unified_Ingest: "If Cert Passes"
+  Unified_CertHarness -> Unified_Reject: "If Cert Fails"
+  WinML_Customer -> Unified_CertHarness: "Models + Test Playlist + Gates"
+}
