@@ -58,3 +58,15 @@ Referenced in:
 - **Scalability**: Enables support across diverse IHVs without compromising performance.
 - **Transparency**: Decoder ring initiative ensures IHVs understand model mappings.
 - **Ownership**: Team owns the mid-to-low stack, critical for real-time workloads and WinML success.
+
+---
+
+## FAQ
+
+### Q: What is the fallback to SPIR-V in the context of Unified IR, and why is it important?
+
+In scenarios where the Unified Intermediate Representation (UIR) pipeline encounters limitations or incompatibilities—such as unsupported features, hardware constraints, or tooling gaps—a fallback mechanism to SPIR-V (Standard Portable Intermediate Representation - Vulkan) ensures continued functionality and compatibility. This fallback acts as a safety net, allowing shaders or compute workloads to be compiled and executed using a well-established, cross-platform IR format.
+
+The fallback to SPIR-V is particularly relevant when targeting diverse hardware ecosystems or when integrating with existing toolchains that are already optimized for SPIR-V. It provides a practical path for maintaining performance and correctness without blocking development or deployment.
+
+This mechanism is not intended as a primary path but rather as a resilience strategy. It ensures that developers can rely on a consistent execution model even when UIR is not fully supported or optimized for a given scenario. The fallback also facilitates incremental adoption of UIR by allowing teams to transition gradually while preserving compatibility.
