@@ -142,10 +142,14 @@ The proposed change embraces a more flexible and maintainable model by enforcing
 
 This shift aims for a broader effort to streamline deployment, reduce build complexity, and support dynamic configuration across heterogeneous hardware environments. It also aligns with the team's goal of minimizing platform-specific code and standardizing EP packaging and registration via MSIX and NuGet.
 
+### Side-By-Side Builds in Play B and Play C Packages
+
+Play B relies on WinML being included in the OS image via CBS (Component-Based Servicing). This means WinML is already present and serviced as part of the OS, avoiding any dependency on external delivery mechanisms like the Store. The AI Fabric in Play B simply calls into the OS-provided WinML if the Velocity key is enabled. This approach ensures tight servicing alignment and avoids duplication.
+
+Play C, on the other hand, includes WinML-compatible code directly inside the AI Fabric package. This is because Play C is modular and delivered independently of the OS. Including WinML in the package allows Play C to function even if the OS doesn't have the right WinML version. However, whether WinML is actually used depends on a Velocity key. If validation fails, the system falls back to using Execution Providers (EPs) instead of invoking WinML.
+
+This design gives Play C flexibility during internal testing while Play B prioritizes servicing stability and OS integration.
+
 <br>
 
 ---
-
-*Document Version: 1.0*  
-*Last Updated: [Date]*  
-*Next Review: [Date]*

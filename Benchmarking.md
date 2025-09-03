@@ -144,16 +144,51 @@ Beyond performance, developers care about ease of development, tooling, and hard
 ---
 
 ### **References & Supporting Evidence**
+
 - Internal: Photoshop parity data, Windows Studio whitepaper, AI Platform Spec, ONNX team presentations, Intel/AMD/Qualcomm workstreams
 - External: Microsoft Copilot+ PC announcement, Tom’s Guide methodology, ONNX Runtime docs, UL Procyon benchmark, Windows ML blog
 
----
 
-## 2. WinML Goals & Runtime Strategy
+## **2. WinML Goals & Runtime Strategy**
 
-*Clarify WinML's role, unify runtimes, and reduce developer friction*
+WinML is evolving into the foundation of the Windows AI developer experience. As outlined in Section 1, developers are looking for clarity, consistency, and performance across runtimes—and benchmarking is a key tool to deliver that. WinML must address the fragmentation developers face today, unify the runtime landscape, and serve as the default path for deploying local AI on Windows.
 
-[Content to be developed]
+The strategy for FY26 is shaped by three core drivers from Section 1:
+
+- **Customer pain points**: runtime confusion, model portability issues, and performance perception gaps.
+- **Developer priorities**: ease of development, hardware integration, and predictable performance.
+- **Strategic goals**: build trust, showcase competitiveness, and enable scale across diverse workloads and devices.
+
+### **Strategic Focus Areas for WinML**
+
+#### **1. Bring Your Own Model (BYOM) Enablement**
+
+- **Goal**: Make it easy for developers to deploy custom ONNX models locally.
+- **Action**: Expand support for model conversion, packaging, and deployment workflows using Olive and ONNX Runtime.
+- **Why it matters**: Addresses portability friction and empowers developers to bring their own models without deep platform dependencies.
+
+#### **2. Enterprise-Ready AI Experiences**
+
+- **Goal**: Position WinML as the default runtime for enterprise-grade workloads.
+- **Action**: Improve reliability, performance, and compatibility across IHVs; reduce deployment friction.
+- **Why it matters**: Aligns with top customer segments (ISVs, OEMs) and supports enterprise adoption at scale.
+
+#### **3. Runtime Unification and Simplification**
+
+- **Goal**: Reduce confusion across WinML, DirectML, and ONNX Runtime.
+- **Action**: Clarify execution paths, improve documentation, and align tooling under the Windows AI Foundry umbrella.
+- **Why it matters**: Directly addresses developer onboarding pain points and simplifies the development experience.
+
+#### **4. Performance and Benchmarking Alignment**
+
+- **Goal**: Ensure WinML delivers competitive performance across key benchmarks.
+- **Action**: Optimize for Geekbench AI, UL Procyon, and MLPerf Client; track parity with Apple and Linux-first stacks.
+- **Why it matters**: Builds credibility, closes perception gaps, and positions WinML as the reference runtime for Windows benchmarking efforts.
+
+<br>
+
+WinML is no longer just a runtime—it’s the strategic layer that connects developer needs, platform goals, and benchmarking outcomes. Whether deploying LLMs, vision models, or enterprise workloads, WinML should be the default choice for developers building on Windows. It must be developer-friendly, enterprise-ready, and benchmark-aligned—delivering clarity, confidence, and consistency across the ecosystem.
+
 
 ## 3. Silicon Roadmap & Hardware Strategy
 

@@ -70,3 +70,21 @@ In scenarios where the Unified Intermediate Representation (UIR) pipeline encoun
 The fallback to SPIR-V is particularly relevant when targeting diverse hardware ecosystems or when integrating with existing toolchains that are already optimized for SPIR-V. It provides a practical path for maintaining performance and correctness without blocking development or deployment.
 
 This mechanism is not intended as a primary path but rather as a resilience strategy. It ensures that developers can rely on a consistent execution model even when UIR is not fully supported or optimized for a given scenario. The fallback also facilitates incremental adoption of UIR by allowing teams to transition gradually while preserving compatibility.
+
+### Q: What are Rutvi's 3 workstreams?
+
+**NPU workstream**: Unified IR POC across NPUs, starting with high-level IR alignment on input. 1
+
+**GPU workstream**: Real-time graphics workloads, including gaming and existing Direct ML customers. 1
+
+**High-level IR workstream**: Dedicated design and implementation of high-level IR, considered a major effort on its own. 2
+
+### Q: What is the strategic positioning of DirectX APIs versus Windows ML for different developer scenarios?
+
+The strategic recommendation is that **Windows ML should serve as the single entry point for all ML use cases**, while **DirectX APIs should remain available specifically for game developers and gaming scenarios** to provide the flexibility and control they require. This dual approach recognizes the fundamental differences in developer needs between gaming and non-gaming ML workloads.
+
+For game engines, the recommendation suggests they can be driven through Windows ML while maintaining compatibility with existing workflows. However, for individual game developers, maintaining DirectX API access is critically important. Game developers often require the full control and consistency provided by DirectX APIs, and removing this access could negatively impact a large developer base that has built their expertise and workflows around these lower-level interfaces.
+
+The underlying rationale stems from the different priorities between gaming and enterprise scenarios. While DirectX APIs do provide cross-IHV support, other ISV customers prefer Windows ML for its higher-level consistency and quality across Independent Hardware Vendors (IHVs). Windows ML is specifically designed to offer more consistent quality and debuggability across IHVs, which is a key reason why customers in non-gaming scenarios shift from DirectX APIs to Windows ML. Even when the underlying Intermediate Representations (IRs) are similar between both approaches, Windows ML provides higher-level abstraction, cross-IHV consistency, and streamlined quality for ML workloads, making it easier for non-gaming developers to achieve reliable results without requiring deep hardware or API expertise.
+
+In contrast, DirectX APIs provide granular control and flexibility that is preferred by game developers who need explicit schedulability and command-level access to hardware resources. Windows ML focuses on simplicity and policy-level control for broader ML use cases, while DirectX APIs cater to power users who need detailed control and optimization capabilities for real-time performance-critical scenarios. This strategic positioning allows both paths to coexist and serve their respective developer communities effectively.
