@@ -163,7 +163,7 @@ The strategy for FY26 is shaped by three core drivers from Section 1:
 
 #### **1. Bring Your Own Model (BYOM) Enablement**
 
-- **Goal**: Make it easy for developers to deploy custom ONNX models locally.
+- **Goal**: Make it easy for developers to deploy custom ONNX models locally. This includes usng AITK to convert, quantize and compile models to the requisite IR format.
 - **Action**: Expand support for model conversion, packaging, and deployment workflows using Olive and ONNX Runtime.
 - **Why it matters**: Addresses portability friction and empowers developers to bring their own models without deep platform dependencies.
 
@@ -190,11 +190,16 @@ The strategy for FY26 is shaped by three core drivers from Section 1:
 WinML is no longer just a runtime—it’s the strategic layer that connects developer needs, platform goals, and benchmarking outcomes. Whether deploying LLMs, vision models, or enterprise workloads, WinML should be the default choice for developers building on Windows. It must be developer-friendly, enterprise-ready, and benchmark-aligned—delivering clarity, confidence, and consistency across the ecosystem.
 
 
-## 3. Silicon Roadmap & Hardware Strategy
+## 3. Silicon Roadmap & Hardware Landscape
 
-*Position GPUs, NPUs, and new SoCs in the benchmarking and developer experience narrative*
 
-[Content to be developed]
+The global AI silicon market is at an inflection point, projected to reach **$154 billion by 2030** with a compound annual growth rate (CAGR) exceeding 20%. Industry leaders—including NVIDIA, AMD, Intel, and Google—are rapidly converging toward unified architectures that blend traditional GPU programmability with dedicated AI accelerators such as NPUs and custom ASICs. This transformation is driven by explosive demand for generative AI, edge computing, and hybrid workloads that span CPU, GPU, and NPU resources.
+
+Hybrid CPU+NPU+GPU designs are now the default for next-generation devices, enabling new execution paths and resource tradeoffs that fundamentally reshape benchmarking strategies. Edge AI chips and specialized SoCs are forecast to grow more than 20% year-over-year in 2025, reflecting the shift from centralized datacenter inference to distributed, real-time intelligence at the device level.
+
+As the competitive landscape intensifies, benchmarking must evolve to capture system-level performance, portability, and developer experience—not just isolated IP throughput. Microsoft’s strategy is to enable dual execution paths (native and WinML) across all IHVs, with unified IR and MLIR architectures promising consistent abstraction and apples-to-apples comparisons across hardware targets.
+
+In this rapidly changing environment, benchmarking is more than a scorecard—it is a strategic lever for building developer trust, enabling portability, and showcasing the strength of the Windows ecosystem against vertically integrated competitor.
 
 ## 4. Benchmarking Landscape & Rationale
 

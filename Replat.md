@@ -43,7 +43,7 @@ Replatforming occurs are the model execution layer, which sits beneath the appli
 
 The diagram below shows both the stacks of AI Fabric. The older stack invokes a PSAPI that carries with it models and IHV execution providers. The replat variant of AI Fabric invokes WinML, which will be found on the local device. WinML will detect the device platform and NPU type and request for the right EP UUP package from Windows Update. Once the EP is deployed, the execution stack is complete and WinML will schedule work on the NPU per the application's (in this case, PSAPI) request.
 
-<img src="replat_arch.png" alt="Replat Architecture Diagram" width="1000" height="850">
+<img src="SupportingFiles/replat_arch.png" alt="Replat Architecture Diagram" width="700" height="850">
 
 <br>
 <br>
