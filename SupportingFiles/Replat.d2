@@ -1,12 +1,13 @@
 0PWAIIA: "Windows 0P Windows features like Recall" {
-  style.fill: "#ffd580"
+  style.fill: "#E4664C"
 }
 
 1PWAIIA: "Microsoft 1P Apps like Photos/Paint" {
-  style.fill: "#ffd580"
+  style.fill: "#E4664C"
 }
 
-AIF: "AI Fabric" {
+AIF: "AI Fabric Current" {
+  style.fill: "#ffa500"
   PSAPI: "PSAPI" {
     ONNX: "ONNX Runtime" {
       style.fill: "#b2f0e3"
@@ -32,22 +33,25 @@ AIF: "AI Fabric" {
 }
 
 AIF_REPLAT: "AI Fabric Replat" {
+  style.fill: "#9370db"
   PSAPI: "PSAPI"
   OCR: "OCR"
 }
 
-WinAIF: "Windows AI Foundry" {
-  WinML: "Windows ML" {
-    style.fill: "#d5b3ff"
-    ONNX: "ONNX Runtime" {
-      style.fill: "#b2f0e3"
-      EP1: "IHV EP 1" {
-        style.fill: "#ffc0cb"
-      }
-      EP2: "IHV EP 2" {
-        style.fill: "#ffc0cb"
-      }
-    }
+WinML: "Windows ML" {
+  style.fill: "#9370db"
+  ONNX: "ONNX Runtime" {
+    style.fill: "#b2f0e3"
+  }
+}
+
+UUP: "EP UUP Packages" {
+  style.fill: "#9370db"
+  EP1: "IHV EP 1" {
+    style.fill: "#ffc0cb"
+  }
+  EP2: "IHV EP 2" {
+    style.fill: "#ffc0cb"
   }
 }
 
@@ -65,27 +69,70 @@ NPU: "NPU" {
   style.fill: "#87ceeb"
 }
 
-0PWAIIA -> AIF
-1PWAIIA -> AIF
+0PWAIIA -> AIF: {
+  style.stroke: "#ffa500"
+}
+1PWAIIA -> AIF: {
+  style.stroke: "#ffa500"
+}
 
-IHV.EP1 -> WinAIF.WinML.ONNX.EP1
-IHV.EP2 -> WinAIF.WinML.ONNX.EP2
+IHV.EP1 -> AIF.PSAPI.ONNX.EP1: {
+  style.stroke: "#ffa500"
+}
+IHV.EP2 -> AIF.PSAPI.ONNX.EP2: {
+  style.stroke: "#ffa500"
+}
 
-IHV.EP1 -> AIF.PSAPI.ONNX.EP1
-IHV.EP2 -> AIF.PSAPI.ONNX.EP2
+IHV.EP1 -> AIF.OCR.ONNX.EP1: {
+  style.stroke: "#ffa500"
+}
+IHV.EP2 -> AIF.OCR.ONNX.EP2: {
+  style.stroke: "#ffa500"
+}
+AIF.PSAPI.ONNX.EP1 -> NPU: {
+  style.stroke: "#ffa500"
+}
+AIF.OCR.ONNX.EP1 -> NPU: {
+  style.stroke: "#ffa500"
+}
+AIF.PSAPI.ONNX.EP2 -> NPU: {
+  style.stroke: "#ffa500"
+}
+AIF.OCR.ONNX.EP2 -> NPU: {
+  style.stroke: "#ffa500"
+}
 
-IHV.EP1 -> AIF.OCR.ONNX.EP1
-IHV.EP2 -> AIF.OCR.ONNX.EP2
+0PWAIIA -> AIF_REPLAT: {
+  style.stroke: "#9370db"
+}
+1PWAIIA -> AIF_REPLAT: {
+  style.stroke: "#9370db"
+}
 
-AIF_REPLAT.PSAPI -> WinAIF.WinML
-AIF_REPLAT.OCR -> WinAIF.WinML
+AIF_REPLAT.PSAPI -> WinML: {
+  style.stroke: "#9370db"
+}
+AIF_REPLAT.OCR -> WinML: {
+  style.stroke: "#9370db"
+}
 
-0PWAIIA -> AIF_REPLAT
-1PWAIIA -> AIF_REPLAT
+WinML.ONNX -> UUP.EP1: {
+  style.stroke: "#9370db"
+}
+WinML.ONNX -> UUP.EP2: {
+  style.stroke: "#9370db"
+}
 
-AIF.PSAPI.ONNX.EP1 -> NPU
-AIF.PSAPI.ONNX.EP2 -> NPU
-AIF.OCR.ONNX.EP1 -> NPU
-AIF.OCR.ONNX.EP2 -> NPU
-WinAIF.WinML.ONNX.EP1 -> NPU
-WinAIF.WinML.ONNX.EP2 -> NPU
+UUP.EP1 -> NPU: {
+  style.stroke: "#9370db"
+}
+UUP.EP2 -> NPU: {
+  style.stroke: "#9370db"
+}
+
+IHV.EP1 -> UUP.EP1: {
+  style.stroke: "#9370db"
+}
+IHV.EP2 -> UUP.EP2: {
+  style.stroke: "#9370db"
+}
