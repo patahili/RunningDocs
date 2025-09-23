@@ -305,17 +305,32 @@ Strategic benchmark-driven messaging enables Windows to tell a compelling story 
 | **Customer Message**                                                 | **Benchmark(s)**                                               | **Strategic Purpose**                                                                     |
 | -------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **Windows NPUs outperform Apple in real-world vision tasks**         | UL Procyon AI CV 2.0                                           | Direct Apple compete story using NPU-only benchmarks; highlight Windows silicon advantage |
-| **Windows delivers more AI per watt**                                | UL Procyon + power telemetry (battery drain, latency-per-watt) | Showcase power efficiency and battery life benefits of NPU execution vs. Apple GPU        |
-| **WinML enables consistent performance across diverse silicon**      | MLPerf 1.5 (GPU + NPU)                                         | Demonstrate WinML's ability to unify execution across IHVs and support both GPU/NPU paths |
+| **Windows delivers more AI per watt**                                | Custom scenario benchmark (any ONNX model + telemetry)         | Showcase power efficiency and battery life benefits of NPU execution vs Apple GPU        |
+| **WinML enables consistent performance across diverse silicon**      | MLPerf 1.5 (GPU + NPU)                                         | Demonstrate WinML's ability to unify execution paths across IHVs                          |
 | **Windows is the most flexible platform for deploying AI workloads** | Geekbench AI 1.5                                               | Highlight broad compatibility across devices and OSes; reinforce developer reach          |
 | **Windows AI is ready for enterprise-grade workloads**               | MLPerf Client (language models)                                | Position WinML as enterprise-ready runtime, even if Apple only runs LLMs on GPU           |
-| **Developers can build once and deploy across Windows devices**      | UL Procyon + MLPerf                                            | Reinforce WinML's cross-device and cross-silicon reach with real-world benchmarks         |
 
 ## 6. Tactical Roadmap
 
-*Define milestones, phases, and execution plan for the next 12 months*
+## 🛠️ P0 Execution Plan
 
-[Content to be developed]
+| **Attribute**        | **Goal 1: NPU Leadership vs Apple**                          | **Goal 2: WinML Cross-Silicon Execution**                            | **Goal 3: Custom Scenario Power Benchmark**                             |
+| -------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Benchmark**        | UL Procyon AI CV 2.0                                         | MLPerf 1.5 (GPU + NPU)                                               | Any ONNX model run via command line or script                           |
+| **Customer Message** | *"Windows NPUs outperform Apple in real-world vision tasks"* | *"WinML enables consistent performance across diverse silicon"*      | *"Windows delivers more AI per watt"*                                   |
+| **Execution Path**   | Native + WinML                                               | Native + WinML                                                       | Native NPU execution                                                    |
+| **Target Outcome**   | ≥5% better NPU score than Apple M4 across 5 models           | Hero GPU beats Apple M4 in LLM throughput; WinML within 5% of native | Demonstrate lower battery drain and better latency-per-watt vs Apple M4 |
+| **Risks**            | AMD commitment lag; model conversion issues                  | QC pushback on GPU path; AMD delay                                   | Lack of telemetry tooling; device variability                           |
+| **Mitigations**      | Prioritize Intel/QC enablement; fallback models              | Early validation with Intel/Nvidia; fallback to NPU-only story       | Use Surface reference devices; partner with IHVs for instrumentation    |
+
+### 📅 Milestone Timeline
+
+| **Phase**    | **Focus**                                                                       |
+| ------------ | ------------------------------------------------------------------------------- |
+| **Sept–Oct** | Model conversion, WinML GA, IHV engagement, fallback planning                   |
+| **Nov–Dec**  | Internal validation, Procyon CV 2.0 release, MLPerf 1.5 submission              |
+| **Jan–Feb**  | Begin Apple M5 compete story, explore 70+ TOPS NPU tiering                      |
+| **Mar–May**  | Broader benchmarking across NPU tiers, power efficiency experiments, prep for //Build |
 
 ## 7. Making It Happen
 
