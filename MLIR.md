@@ -71,13 +71,15 @@ The fallback to SPIR-V is particularly relevant when targeting diverse hardware 
 
 This mechanism is not intended as a primary path but rather as a resilience strategy. It ensures that developers can rely on a consistent execution model even when UIR is not fully supported or optimized for a given scenario. The fallback also facilitates incremental adoption of UIR by allowing teams to transition gradually while preserving compatibility.
 
-### Q: What are Rutvi's 3 workstreams?
+### Q: What are Rutvi's 4 workstreams?
 
-**NPU workstream**: Unified IR POC across NPUs, starting with high-level IR alignment on input. 1
+**High Level IR**: Dedicated design and implementation of high-level IR, considered a major effort on its own.
 
-**GPU workstream**: Real-time graphics workloads, including gaming and existing Direct ML customers. 1
+**NPU - WinML**: Unified IR POC across NPUs, starting with high-level IR alignment on input.
 
-**High-level IR workstream**: Dedicated design and implementation of high-level IR, considered a major effort on its own. 2
+**GPU - WinML**: Real-time ML workloads targeting GPU through WinML runtime.
+
+**GPU - Gaming and 3D Graphics (+ traditional DirectML customers) - AMD/Xbox alignment**: Real-time graphics workloads, including gaming and existing DirectML customers with specific AMD/Xbox alignment.
 
 ### Q: What is the strategic positioning of DirectX APIs versus Windows ML for different developer scenarios?
 
@@ -88,3 +90,25 @@ For game engines, the recommendation suggests they can be driven through Windows
 The underlying rationale stems from the different priorities between gaming and enterprise scenarios. While DirectX APIs do provide cross-IHV support, other ISV customers prefer Windows ML for its higher-level consistency and quality across Independent Hardware Vendors (IHVs). Windows ML is specifically designed to offer more consistent quality and debuggability across IHVs, which is a key reason why customers in non-gaming scenarios shift from DirectX APIs to Windows ML. Even when the underlying Intermediate Representations (IRs) are similar between both approaches, Windows ML provides higher-level abstraction, cross-IHV consistency, and streamlined quality for ML workloads, making it easier for non-gaming developers to achieve reliable results without requiring deep hardware or API expertise.
 
 In contrast, DirectX APIs provide granular control and flexibility that is preferred by game developers who need explicit schedulability and command-level access to hardware resources. Windows ML focuses on simplicity and policy-level control for broader ML use cases, while DirectX APIs cater to power users who need detailed control and optimization capabilities for real-time performance-critical scenarios. This strategic positioning allows both paths to coexist and serve their respective developer communities effectively.
+
+### Q: What is a Dialect?
+
+A dialect in the context of this meeting refers to a specific intermediate representation (IR) within the MLIR framework that defines a set of operators, data types, and semantics tailored for a particular abstraction level or use case, such as high-level model graphs, subgraphs, or lower-level hardware-specific operations. Each dialect is designed to capture the relevant details needed for optimization, transformation, and interoperability at its respective level in the compiler stack.
+
+Dialects tackle and focus on several key areas:
+
+• **Performance**: The dialect is designed to enable efficient optimization for hardware by providing a minimal, high-level representation that IHVs (independent hardware vendors) can use to apply hardware-specific transformations. This helps ensure that models can be executed efficiently across different platforms.
+
+• **Co-engineering Efficiency**: The dialect allows IHVs to access a generic model representation while still being able to apply their own optimizations. This shared interface streamlines collaboration and reduces the need for multiple, framework-specific implementations.
+
+• **Trace Operator Surface**: By keeping the operator set concise and focused on what is critical for hardware optimization, the dialect avoids unnecessary complexity and ensures that only relevant operations are exposed to IHVs.
+
+• **Serialization and Stability**: The dialect is versioned and strongly typed, ensuring that the operator contracts remain stable over time. This stability is important for both higher and lower levels of the stack, supporting long-term maintainability.
+
+• **Debuggability**: Using MLIR, the dialect supports tracing and annotating subgraphs and transformations, making it easier to debug and understand how high-level constructs are lowered to hardware-specific implementations.
+
+• **Canonical Forms and Consistency**: The dialect enforces consistent patterns (e.g., quantization semantics) so IHVs can reliably recognize and optimize common operations, improving both performance and compatibility.
+
+• **Explicit Manipulation**: The dialect encourages explicit operators for memory layout and tensor manipulation, rather than relying on implicit or introspective logic, which aids in optimization and clarity.
+
+• **Logical Abstraction**: The dialect is kept at a logical level, not dealing with low-level memory management, to maintain abstraction and portability across hardware.

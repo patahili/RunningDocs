@@ -50,9 +50,18 @@ The diagram below shows both the stacks of AI Fabric. The older stack invokes a 
 
 # Validation
 
-## EP Ingestion and Gating
+## Validation Landscape
 
-<img src="SupportingFiles/Replat_EP_Validation.png" alt="EP Ingestion Paths, new and old" width="1300" height="750">)
+| Dimension | Teams | Current Status |
+|-----------|-------|----------------|
+| **Model Validation** | WinML, Model Owners | In Progress |
+| **EP Certification** | AITK, IHVs | Active |
+| **Hardware Compatibility** | WSSI, IHVs | Ongoing |
+| **Application Compatibility** | App Compat, Feature Teams | Early Stage |
+| **Performance Benchmarking** | WinML, Model Owners | Planned |
+| **End-to-End Integration** | All Teams | Future |
+
+## EP Ingestion
 
 ### **Current Situation (as of August 2025)**
 
@@ -69,43 +78,9 @@ Specifically, there is ambiguity around:
 
 Clarifying these responsibilities is essential to ensure the integrity and performance of CP+ models under the new WinML-driven architecture.
 
-### Proposal
+<img src="SupportingFiles/Replat_EP_Validation.png" alt="EP Ingestion Paths, new and old" width="1300" height="750">
 
-As outlined in the current situation, Replat shifts EP ingestion from individual ORT clients to WinML. While this centralization simplifies deployment, it introduces ambiguity around validation ownership—especially for CP+ models not covered by AITK Cert.
-
----
-
-#### **Validation Plan Components R&R**
-
-| **Entity**         | **Responsibilities**                                                                 | **Notes**                                                                 |
-|--------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| **WinML Team**     | - Owns EP ingestion pipeline<br>- Executes AITK Cert<br>- Integrates CP+ test suite | Acts as the central gatekeeper for EP ingestion and validation workflows |
-| **CP+ Model Owners** | - Define model-specific test cases<br>- Provides Models to test with<br>- Provide expected test behaviors and expected outputs<br>- Triage failures | Maintain domain expertise and ensure model integrity                     |
-| **AITK Team**      | - Expand Cert coverage to include CP+ models<br>- Maintain test infrastructure       | Supports validation tooling and certification standards                  |
-
----
-
-#### **Execution Workflow**
-- EP update triggers AITK Cert and CP+ model validation suite.
-- Failures are logged and routed to model owners.
-- Ingestion is gated until regressions are resolved or waived.
-
----
-
-#### **Governance & Reporting**
-- Monthly review board (WinML, CP+ owners, AITK) evaluates outcomes and updates coverage.
-- Central dashboard tracks validation history, coverage, and waivers.
-
----
-
-#### **Open Questions**
-- Who maintains the device lab and ensures we have up to date hardware?
-  *Note: Vicente has meetings with WSSI to discuss leveraging WSSI IDC Lab*
-- What's the SLA for triage and resolution to make final verdict on go/no go for ingestion and resolving issues?
-
----
-
-Here’s a revised **App Compat** section that reflects the early-stage engagement with Ramesh, Sundar, and Lindsay’s teams, incorporates Sundar’s feature testing role, and clearly outlines the phased validation approach for Replat:
+### **Enhancing EP Cert App to gate on CP+ models**
 
 ---
 
