@@ -1,36 +1,79 @@
-EP_Ingestion_Before: {
-  IHV: "IHV Builds EP"
-  Cert: "IHV Runs Cert"
-  Submit: "IHV Submits EP + Cert Results to MS"
-  ASG_Val: "ASG Runs Validation (PSAPI)"
-  ASG_Ingest: "EP Ingested by ASG"
-  EP_Reject: "Reject EP"
-  WinPD_MiniCert: "WinPD Runs Mini Cert"
-  WinPD_Ingest: "EP Ingested by WinPD"
+# EP Ingestion Workflow - Before and After
 
-  IHV -> Cert
-  Cert -> Submit
-  Submit -> ASG_Val
-  ASG_Val -> ASG_Ingest: "If ASG Tests Pass"
-  ASG_Val -> EP_Reject: "If ASG Tests Fail"
-  Submit -> WinPD_MiniCert
-  WinPD_MiniCert -> WinPD_Ingest: "If Mini Cert Passes"
-  WinPD_MiniCert -> EP_Reject: "If Mini Cert Fails"
+EP_Ingestion_Before: "EP Ingestion Before (Current Path)" {
+  # Main entities
+  IHV: "IHV" {
+    EP: "EP"
+  }
+  
+  ASG: "ASG (Microsoft)" {
+    PSAPI: "PSAPI"
+    OCR: "OCR"
+    PSAPI_Release_Validation: "PSAPI Release Validation"
+    OCR_Release_Validation: "OCR Release Validation"
+    
+    PSAPI -> PSAPI_Release_Validation: {style.stroke: orange}
+    OCR -> OCR_Release_Validation: {style.stroke: orange}
+  }
+  
+  AI_Fabric: "AI Fabric"
+  
+  AI_Fabric_CP_Validation: "AI Fabric and CP+ Validation Systems" {
+    AI_CI: "CI Tests"
+    AI_Validation: "Validation"
+    AI_Flight: "Flighting"
+    AI_Selfhost: "Selfhost"
+  }
+  
+  # Orange arrows for older path
+  # Single path: IHV to ASG route only
+  IHV -> ASG: "Submit EP" {style.stroke: orange}
+  ASG.PSAPI_Release_Validation -> AI_Fabric: "Release" {style.stroke: orange}
+  ASG.OCR_Release_Validation -> AI_Fabric: "Release" {style.stroke: orange}
+  AI_Fabric -> AI_Fabric_CP_Validation: "AI Fabric release planned into ingestion" {style.stroke: orange}
+  AI_Fabric -> IHV: "Share with IHV for internal testing" {style.stroke: orange}
 }
 
-EP_Ingestion_After: {
-  IHV: "IHV Builds EP"
-  Cert: "IHV Runs Cert"
-  Submit: "IHV Submits EP + Cert Results to MS"
-  Unified_CertHarness: "<SOMEONE> Runs Cert Harness"
-  Unified_Ingest: "EP Ingested by WinPD"
-  Unified_Reject: "Reject EP (Cert Harness Failed)"
-  WinML_Customer: "WinML Customer Builds Test Collaterals (Models + Test Playlist + Gates)"
+EP_Ingestion_After: "EP Ingestion After (New Path)" {
+  # Main entities
+  IHV_New: "IHV" {
+    EP_New: "EP"
+  }
+  
+  WinML_New: "Windows AI Foundry Processes"
+  UUP_New: "IHV EP UUP Packages"
+  
+  ASG_New: "ASG (Microsoft)" {
+    PSAPI_New: "PSAPI"
+    OCR_New: "OCR"
+    PSAPI_Release_Validation_New: "PSAPI Release Validation"
+    OCR_Release_Validation_New: "OCR Release Validation"
+    
+    PSAPI_New -> PSAPI_Release_Validation_New: {style.stroke: purple}
+    OCR_New -> OCR_Release_Validation_New: {style.stroke: purple}
+  }
+  
+  AI_Fabric_Replat: "AI Fabric Replat"
+  
+  AI_Fabric_CP_Validation_New: "AI Fabric and CP+ Validation Systems" {
+    AI_CI_New: "CI Tests"
+    AI_Validation_New: "Validation"
+    AI_Flight_New: "Flighting"
+    AI_Selfhost_New: "Selfhost"
+  }
 
-  IHV -> Cert
-  Cert -> Submit
-  Submit -> Unified_CertHarness
-  Unified_CertHarness -> Unified_Ingest: "If Cert Passes"
-  Unified_CertHarness -> Unified_Reject: "If Cert Fails"
-  WinML_Customer -> Unified_CertHarness: "Models + Test Playlist + Gates"
+  # Purple arrows for newer path
+  # Single streamlined path
+  IHV_New -> WinML_New: "Run and Pass EP Cert" {style.stroke: purple}
+  WinML_New -> UUP_New: "Creates UUP" {style.stroke: purple}
+
+  # ASG sideloads from UUP packages and releases to AI Fabric
+  UUP_New -> ASG_New: "Side load latest EP from WinML" {style.stroke: purple}
+  ASG_New.PSAPI_Release_Validation_New -> AI_Fabric_Replat: "Release" {style.stroke: purple}
+  ASG_New.OCR_Release_Validation_New -> AI_Fabric_Replat: "Release" {style.stroke: purple}
+  AI_Fabric_Replat -> AI_Fabric_CP_Validation_New: "AI Fabric release planned into ingestion" {style.stroke: purple}
+  UUP_New -> IHV_New: "Share with IHV for internal testing" {style.stroke: purple}
 }
+
+# Layout configuration
+direction: down
