@@ -13,9 +13,14 @@
 - UL Procyon AI CV 2.0 and MLPerf Client (launching in Q4  ’24) are live windows to publish repeatable wins—our moment to reshape the narrative with data.
 
 ### What We Propose to Start with as P0
-1. **Procyon AI CV 2.0**: 5 vision models across Intel PTL, AMD GRG, QC CAS (~45 TOPS) targeting ≥5% NPU advantage over Apple M4
-2. **MLPerf Client 1.5**: 2 language models via dual GPU+NPU paths - hero GPU device beats Apple M4, NPU demonstrates execution diversity
-3. **Dual Execution Strategy**: Native + WinML validation paths with AITK + Olive toolchain integration for reproducibility
+
+**Benchmarks prove Windows beats Apple where it matters**
+
+1. **Procyon AI CV 2.0**: Enable WinML on 45 TOPS NPUs (Intel PTL, AMD GRG, QC CAS). Target ≥5% advantage over Apple M4 MacBook Air across 5 vision models to demonstrate silicon superiority and prove "Windows NPUs outperform Apple in real-world vision tasks."
+
+2. **MLPerf Client 1.5**: Enable WinML for dual GPU+NPU execution paths across 2 language models. Hero GPU device beats Apple M4 while NPU path demonstrates execution diversity, proving "Windows enables AI workloads across diverse GPU and NPU silicon."
+
+3. **WinML Consistency Target**: Achieve ≤5% performance gap between WinML and native execution across both benchmark suites (7 total models) to validate WinML as the unified abstraction layer with AITK + Olive toolchain integration for reproducibility.
 
 **Timeline**: Original target was Ignite 11/21, but execution is likely to slip by a few weeks given the challenges in resourcing the workstream and the long runway to go. The hope is to complete the enablement by end of calendar '25.
 
@@ -26,7 +31,7 @@
 | MLPerf Client consistency (WinML vs native) | <5% performance gap | End of 2025 |
 | DXI or some related developer confidence index | Measurable improvement | Q1 2026 |
 
-Prioritize 2 benchmark partnerships (MLPerf + Procyon AI), unify WinML messaging, invest in power telemetry tooling.
+Prioritize 2 benchmark partnerships (MLPerf + Procyon AI), unify WinML messaging, optimize runtime consistency across IHVs.
 
 ---
 
@@ -114,9 +119,9 @@ Mar-May 2025:  Broader benchmark coverage, //Build messaging
 ```
 
 ### Success Dependencies
-- **Technical**: WinML runtime optimization, ONNX model conversion pipeline, power telemetry tooling
-- **Partnership**: Intel Arc/Lunar Lake, AMD RDNA4, Qualcomm X Elite coordination
-- **Messaging**: Unified narrative across Windows AI, Surface, and OEM channels
+- **Technical**: WinML runtime optimization to achieve ≤5% overhead vs native across both benchmarks, ONNX model conversion pipeline for 7 reference models (5 vision + 2 language), Procyon AI CV 2.0 benchmark integration and submission process, MLPerf Client 1.5 dual-path validation (GPU + NPU)
+- **Partnership**: Intel PTL + Qualcomm X Elite NPU enablement for Procyon (prioritized over AMD given engagement gaps), Hero GPU device coordination (likely Intel/NVIDIA) for MLPerf competitive claims, UL and MLPerf Consortium benchmark submission coordination
+- **Execution**: Native optimization path establishment before WinML validation, AITK + Olive toolchain integration for reproducibility, Unified narrative across Windows AI, Surface, and OEM channels
 
 ### Key Risks & Mitigations
 | Risk | Impact | Mitigation |
