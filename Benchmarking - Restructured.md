@@ -5,17 +5,19 @@
 
 ## Executive Summary
 
-**The issue isn't just performance—it's the narrative. Windows NPU leads Apple 45 TOPS to 38, but perception lags reality. Strategic benchmarking will prove what we already know and position Windows as the AI platform of choice.**
+**Windows delivers superior NPUs (45 TOPS vs Apple's 38) and unmatched GPU diversity, yet Apple remains the preferred platform for AI development. The gap isn't technical capability—it's developer trust and perception. Strategic benchmarking transforms our silicon advantages into market confidence, establishing Windows as the platform where AI innovation thrives.**
 
 ### Why It Matters Now
 - Windows NPU leads with 45 TOPS vs Apple M4's 38 TOPS—but perception lags behind reality
 - Windows supports diverse silicon (Intel, AMD, Qualcomm) vs Apple's single architecture—but fragmentation creates developer confusion and inconsistent implementation
 - MLPerf Client 1.5 and UL Procyon CV 2.0 launching Q4 2024—window to prove Windows AI superiority
 
-### What We Propose
+### What We Propose to Start with as P0
 1. **Procyon AI CV 2.0**: 5 vision models across Intel PTL, AMD GRG, QC CAS (~45 TOPS) targeting ≥5% NPU advantage over Apple M4
-2. **MLPerf Client 1.5**: 2 language models with hero device GPU score beating Apple M4 MacBook Air 
+2. **MLPerf Client 1.5**: 2 language models via dual GPU+NPU paths - hero GPU device beats Apple M4, NPU demonstrates execution diversity
 3. **Dual Execution Strategy**: Native + WinML validation paths with AITK + Olive toolchain integration for reproducibility
+
+**Timeline**: Original target was Ignite 11/21, but execution is likely to slip by a few weeks given the challenges in resourcing the workstream and the long runway to go. The hope is to complete the enablement by end of calendar '25.
 
 ### How We'll Measure Success
 | Metric | Target | Timeline |
@@ -24,14 +26,14 @@
 | MLPerf Client consistency (WinML vs native) | <5% performance gap | Dec 2024 |
 | Developer confidence index | Measurable improvement | Q1 2025 |
 
-**Ask**: Prioritize 2 benchmark partnerships (MLPerf + Procyon AI), unify WinML messaging, invest in power telemetry tooling.
+Prioritize 2 benchmark partnerships (MLPerf + Procyon AI), unify WinML messaging, invest in power telemetry tooling.
 
 ---
 
 ## 1. Context & Opportunity
 
 ### The Competitive Reality
-Windows NPU hardware leads on paper—**Snapdragon X Elite delivers 45 TOPS vs Apple M4's 38 TOPS**—but Apple wins where it matters: real-world performance and developer trust.
+Windows NPU hardware leads on paper—**Windows IHV partners deliver ~45 TOPS vs Apple M4's 38 TOPS**—but Apple wins where it matters: real-world performance and developer trust.
 
 **Key Performance Gaps:**
 - Geekbench AI: Apple M4 consistently outperforms in quantized inference—Windows ecosystem improvements require coordinated work across individual IHVs
@@ -44,11 +46,11 @@ Windows NPU hardware leads on paper—**Snapdragon X Elite delivers 45 TOPS vs A
 - Drive enterprise purchase intent by showcasing Copilot+ PC cost savings and efficiency advantages
 
 ### Market Opportunity Sizing
-| Customer Segment | Market Size | Windows Opportunity | Benchmark Impact |
-|------------------|-------------|---------------------|------------------|
-| **Big Whales** (Adobe, Unity, Blackmagic) | $2.1B creative software | High—need Windows reach | Co-marketing validation |
-| **Emergent ISVs** (AI startups, creative tools) | $890M emerging AI apps | Medium—cross-platform preference | Performance differentiation |
-| **OEMs/IHVs** (Surface, Dell, HP) | $45B PC hardware | High—NPU differentiation | Product positioning |
+| Customer Segment | Windows Opportunity | Benchmark Impact |
+|------------------|---------------------|------------------|
+| **Big Whales** (Adobe, Unity, Blackmagic) | High—need Windows reach | Co-marketing validation |
+| **Emergent ISVs** (AI startups, creative tools) | Medium—cross-platform preference | Performance differentiation |
+| **OEMs/IHVs** (Surface, Dell, HP) | High—NPU differentiation | Product positioning |
 
 **The reality**: Windows offers superior silicon diversity and performance potential, but fragmentation obscures this advantage. Benchmarking becomes the strategic lever to showcase ecosystem strength and drive platform adoption.
 
@@ -62,7 +64,7 @@ Pair every customer claim with measurable proof points:
 | **Customer Message** | **Benchmark Validation** | **Strategic Purpose** |
 |---------------------|--------------------------|----------------------|
 | "Windows NPUs outperform Apple in real-world vision tasks" | **UL Procyon AI CV 2.0** | Direct Apple compete story using NPU-only workloads |
-| "WinML enables consistent performance across diverse silicon" | **MLPerf Client 1.5** (GPU + NPU) | Demonstrate runtime unification across IHVs |
+| "Windows enables AI workloads across diverse GPU and NPU silicon" | **MLPerf Client 1.5** (dual GPU + NPU paths) | Hero GPU device beats Apple M4; NPU path showcases execution flexibility |
 | "Any model, any inference processor - Windows vs Apple's restricted ecosystem" | **Custom power benchmark** | Prove superior power efficiency and developer choice |
 
 ### The WinML Value Proposition
@@ -100,7 +102,7 @@ Target: Demonstrate superior power efficiency for custom models that Apple can't
 | **Goal** | **Benchmark** | **Models & Targets** | **Execution Strategy** |
 |----------|---------------|---------------------|------------------------|
 | **NPU Leadership vs Apple** | UL Procyon AI CV 2.0 | 5 vision models on Intel PTL, AMD GRG, QC CAS<br>≥5% better NPU score than Apple M4 | Native optimization + WinML validation<br>Prioritize Intel/QC; fallback models ready |
-| **WinML Cross-Silicon** | MLPerf Client 1.5 | 2 language models on NPU + GPU<br>Hero device GPU beats Apple M4 MacBook Air | Multi-IHV validation (Intel/AMD/QC)<br>Early GPU fallback story preparation |
+| **GPU/NPU Silicon Breadth** | MLPerf Client 1.5 | 2 language models via dual submission paths:<br>• Hero GPU device beats Apple M4 MacBook Air<br>• NPU path showcases execution flexibility | Dual GPU + NPU validation across IHVs<br>Hero device focus + NPU strategic differentiation |
 | **Toolchain Integration** | Both benchmarks | AITK + Olive recipes for reproducibility<br>WSL bridge for Linux toolchain components | Start with native IHV path → integrate AITK<br>Identify MS dependencies with each IHV |
 
 ### Milestone Timeline
@@ -123,6 +125,44 @@ Mar-May 2025:  Broader benchmark coverage, //Build messaging
 | Model conversion issues | High | Expand ONNX operator coverage; maintain native execution path |
 | Apple M5 performance jump | High | Focus on Windows advantages: flexibility, reach, developer choice |
 
+### Open Issues Requiring Leadership Decision
+
+#### **Open #1: AMD Engagement Gap**
+**Status**: AMD owes response on benchmarking commitment since August EBR, but meetings continue to be rescheduled.
+
+**Impact**: Without AMD participation, multi-IHV validation story becomes Intel + Qualcomm only, undermining ecosystem breadth claims and competitive positioning vs Apple's "choice" messaging.
+
+**Decision Required**: 
+- **Option A**: Launch Procyon/MLPerf with Intel + Qualcomm only, accept weaker ecosystem story
+- **Option B**: Push timeline to secure AMD commitment, risk missing Ignite window
+
+**Recommendation**: Option A with fallback messaging prepared - "Windows supports all IHV partners when ready"
+
+#### **Open #2: Qualcomm MLPerf Performance Gap**
+**Status**: Qualcomm GPU execution underperforms expectations. QC requests graph splitting + hybrid GPU+NPU execution but ORT lacks this capability.
+
+**Impact**: QC would need to develop custom recipe/toolchain. Without this, QC GPU scores will be suboptimal in MLPerf submissions.
+
+**Decision Required**:
+- **Option A**: Launch MLPerf with current QC GPU performance (suboptimal scores)
+- **Option B**: Delay until QC develops graph splitting solution
+
+**Recommendation**: Option A - MLPerf focuses on execution diversity and QC won't be hero device. Intel/NVIDIA can carry competitive claims while QC demonstrates NPU flexibility.
+
+#### **Open #3: Benchmark Prioritization if Serialization Required**
+**Status**: Resource constraints may force serialization of benchmark workstreams to deliver one by end of calendar 2024.
+
+**Impact**: If we can only execute one benchmark thoroughly rather than both in parallel, we need clear prioritization criteria to maximize strategic impact.
+
+**Decision Required**:
+- **Option A**: Prioritize **Procyon AI CV 2.0** - Direct NPU competitive win, simpler execution path, clearer Apple comparison
+- **Option B**: Prioritize **MLPerf Client 1.5** - Industry standard credibility, broader silicon story, enterprise validation
+
+**Decision Needed**: Requires evaluation of lead times for each benchmark and input from Marketing and Leadership on strategic preference. Key factors to assess:
+- **Lead time analysis**: Which benchmark can realistically deliver by end of calendar 2024?
+- **Marketing preference**: Direct competitive narrative (Procyon) vs industry credibility (MLPerf)?
+- **Leadership priority**: NPU-focused story vs broader silicon diversity positioning?
+
 
 ---
 
@@ -135,7 +175,7 @@ Mar-May 2025:  Broader benchmark coverage, //Build messaging
 ### Detailed Competitive Analysis
 
 #### Apple vs Windows AI Performance Comparison
-While Qualcomm's NPU leads on paper with 45 TOPS versus Apple's 38, benchmark results reveal a more nuanced competitive picture. Apple consistently outperforms in Geekbench AI and UL Procyon scenario tests, especially in quantized and image-based inference. Efficiency per TOPS also favors Apple, thanks to its mature stack. However, Windows is closing the gap, with internal data showing performance parity in key applications like Photoshop and ongoing improvements in MLPerf client benchmarks.
+Windows IHV partners (Intel, AMD, Qualcomm) all deliver superior NPU hardware with ~45 TOPS versus Apple's 38, yet the competitive reality is more complex. Apple's vertically integrated stack delivers consistent performance across their hardware—they control the entire experience. Windows operates across a fragmented ecosystem requiring continuous IHV coordination: identifying performance gaps, resolving regressions, and aligning optimization priorities across multiple vendors. Where Apple achieves predictable results, Windows must actively manage multi-vendor consistency. This coordination overhead is both our challenge and our opportunity—benchmarking becomes the forcing function to align the ecosystem and prove that superior silicon diversity can match Apple's integrated approach.
 
 #### Customer Pain Points Analysis
 **Performance & Efficiency Perception Gap**: Windows is often perceived as slower or less efficient than Apple Silicon or Linux-first stacks, even when real-world performance has improved significantly. For example, Photoshop on Windows started ~30% behind Apple M2 but reached parity by early 2025.
@@ -156,13 +196,13 @@ Beyond performance, developers prioritize:
 ### Silicon Roadmap Deep Dive
 
 #### Market Context & Trends
-The global AI silicon market is projected to reach **$154 billion by 2030** with a CAGR exceeding 20%. Industry leaders—including NVIDIA, AMD, Intel, and Google—are rapidly converging toward unified architectures that blend traditional GPU programmability with dedicated AI accelerators such as NPUs and custom ASICs.
+The global AI silicon market is projected to reach **$154 billion by 2030** with a CAGR exceeding 20% [ToDo: CITATION NEEDED]. Industry leaders—including NVIDIA, AMD, Intel, and Google—are rapidly converging toward unified architectures that blend traditional GPU programmability with dedicated AI accelerators such as NPUs and custom ASICs, driven by explosive demand for generative AI and edge computing.
 
 #### Hardware Architecture Evolution
-Hybrid CPU+NPU+GPU designs are now the default for next-generation devices, enabling new execution paths and resource tradeoffs that fundamentally reshape benchmarking strategies. Edge AI chips and specialized SoCs are forecast to grow more than 20% year-over-year in 2025, reflecting the shift from centralized datacenter inference to distributed, real-time intelligence at the device level.
+Hybrid CPU+NPU+GPU designs are becoming standard for next-generation devices [ToDo: VERIFY ACROSS ALL IHVs], enabling new execution paths and resource tradeoffs that fundamentally reshape benchmarking strategies. Edge AI chips and specialized SoCs are forecast to grow more than 20% year-over-year in 2025 [ToDo: CITATION NEEDED], reflecting the shift from centralized datacenter inference to distributed, real-time intelligence at the device level.
 
 #### Strategic Implications
-Microsoft's strategy enables dual execution paths (native and WinML) across all IHVs, with unified IR and MLIR architectures promising consistent abstraction and apples-to-apples comparisons across hardware targets. This positions Windows uniquely against vertically integrated competitors.
+Microsoft's strategy positions WinML as the unifying abstraction layer that solves IHV fragmentation—developers write once to WinML while native paths enable IHV-specific optimization and validation. With unified IR and MLIR architectures, WinML promises consistent abstraction and apples-to-apples comparisons across hardware targets, positioning Windows uniquely against vertically integrated competitors.
 
 ---
 
