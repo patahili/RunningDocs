@@ -5,12 +5,12 @@
 
 ## Executive Summary
 
-**Windows delivers superior NPUs (45 TOPS vs Apple's 38) and unmatched GPU diversity, yet Apple remains the preferred platform for AI development. The gap isn't technical capability—it's developer trust and perception. Strategic benchmarking transforms our silicon advantages into market confidence, establishing Windows as the platform where AI innovation thrives.**
+**Windows delivers superior NPUs (45 TOPS vs Apple's 38) and unmatched GPU diversity, yet Apple remains the preferred platform for AI development. The gap isn't technical capability—it's developer trust and perception. Public, repeatable benchmarks will prove Windows devices deliver better real‑world AI performance and efficiency than Apple—turning our silicon advantages into market confidence.**
 
 ### Why It Matters Now
 - Windows NPU leads with 45 TOPS vs Apple M4's 38 TOPS—but perception lags behind reality
 - Windows supports diverse silicon (Intel, AMD, Qualcomm) vs Apple's single architecture—but fragmentation creates developer confusion and inconsistent implementation
-- MLPerf Client 1.5 and UL Procyon CV 2.0 launching Q4 2024—window to prove Windows AI superiority
+- UL Procyon AI CV 2.0 and MLPerf Client (launching in Q4  ’24) are live windows to publish repeatable wins—our moment to reshape the narrative with data.
 
 ### What We Propose to Start with as P0
 1. **Procyon AI CV 2.0**: 5 vision models across Intel PTL, AMD GRG, QC CAS (~45 TOPS) targeting ≥5% NPU advantage over Apple M4
@@ -22,9 +22,9 @@
 ### How We'll Measure Success
 | Metric | Target | Timeline |
 |--------|--------|----------|
-| UL Procyon AI CV 2.0 NPU score vs Apple M4 | >5% advantage | Nov 2024 |
-| MLPerf Client consistency (WinML vs native) | <5% performance gap | Dec 2024 |
-| Developer confidence index | Measurable improvement | Q1 2025 |
+| UL Procyon AI CV 2.0 NPU score vs Apple M4 | >5% advantage | End of 2025 |
+| MLPerf Client consistency (WinML vs native) | <5% performance gap | End of 2025 |
+| DXI or some related developer confidence index | Measurable improvement | Q1 2026 |
 
 Prioritize 2 benchmark partnerships (MLPerf + Procyon AI), unify WinML messaging, invest in power telemetry tooling.
 
@@ -38,7 +38,7 @@ Windows NPU hardware leads on paper—**Windows IHV partners deliver ~45 TOPS vs
 **Key Performance Gaps:**
 - Geekbench AI: Apple M4 consistently outperforms in quantized inference—Windows ecosystem improvements require coordinated work across individual IHVs
 - Power efficiency: Analysis from Intel in weekly meetings showed Apple achieves 3-4× better performance-per-watt
-- Developer experience: "Just works" vs Windows runtime confusion
+- Developer experience: "Just works" vs Windows execution path flexibility
 
 **Strategic Window:**
 - Demonstrate IHV Silicon NPU superiority (45 TOPS) across Intel, AMD, Qualcomm vs Apple's single architecture
@@ -68,15 +68,15 @@ Pair every customer claim with measurable proof points:
 | "Any model, any inference processor - Windows vs Apple's restricted ecosystem" | **Custom power benchmark** | Prove superior power efficiency and developer choice |
 
 ### The WinML Value Proposition
-**Problem**: Developers face runtime confusion—WinML vs DirectML vs ONNX Runtime vs native paths. Apple restricts NPU access to approved models, forcing GPU fallback without developer control.
+**Strategic Advantage**: WinML enables "any model, any NPU" deployment across Windows' diverse silicon ecosystem. Developers can bring custom fine-tuned models directly to NPU execution across Intel, AMD, and Qualcomm platforms, while Apple's approved-list approach forces non-sanctioned models into power-hungry GPU execution with no developer override.
 
-**Solution**: Position WinML as the **unified abstraction layer** that delivers:
-- **Portability**: Same ONNX model runs across Intel, AMD, Qualcomm NPUs
-- **Performance**: <5% overhead vs native while enabling cross-silicon deployment
-- **Control**: Explicit NPU targeting for any ONNX model vs Apple's opaque restrictions
-- **Efficiency**: NPU execution for custom models that Apple forces to power-hungry GPU
+**WinML Delivers**:
+- **Universal Model Support**: Deploy any ONNX model to NPU while Apple restricts access to approved models only
+- **Silicon Diversity**: Target Intel, AMD, Qualcomm NPUs (45+ TOPS) vs Apple's single architecture constraint
+- **Developer Control**: Explicit hardware targeting vs Apple's opaque fallback decisions
+- **Efficiency Advantage**: NPU execution for custom models that Apple forces to inefficient GPU paths
 
-**Proof Point**: MLPerf Client results showing WinML achieving >90% of native performance across 5 reference models and 3 IHV platforms, with superior power efficiency vs Apple's GPU fallback for non-approved models.
+**Proof Point**: Procyon AI CV 2.0 and MLPerf Client 1.5 results showing WinML achieving ≥95% of native performance across 7 reference models (5 vision + 2 language) and diverse silicon execution paths - proving consistent deployment across Intel, AMD, and Qualcomm platforms while Apple's approved-list restricts developers to GPU fallback for custom models.
 
 ### Power Efficiency Opportunity
 **Apple's Hidden Weakness**: Apple restricts NPU access to an "approved list"—custom models fall back to power-hungry GPU execution without developer control. Windows enables NPU targeting for any ONNX model.
